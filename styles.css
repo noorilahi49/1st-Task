@@ -1,0 +1,281 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+
+}
+.icons{
+    font-size: 40px;
+    padding: 50px; /* right space between icons */
+  
+}
+#main{
+    text-align: center;
+    margin-top: 150px;
+    font-family: Arial, Helvetica, sans-serif;
+   margin-left: 0px;
+   margin-right: 0px;
+}
+/* #bgpic{
+    background-image: url("./hero_2.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    height: 100%;
+    
+} */
+/* @media (max-width:600px){
+     #bgpic{
+         background-image: url("./hero_2.jpg");
+         background-position: center;
+         background-size: cover;
+         background-repeat: no-repeat;
+         object-fit: cover;
+         height: 50vh;
+         
+     }
+
+ } */
+
+
+
+ul>li>a:hover{
+    color:gray !important;
+}
+form>i:hover{
+    color:#615e5e !important;
+}
+
+#drapd1{color: #000 !important;
+
+}
+#drapd2{color: #000 !important;
+
+}
+#drapd3{color: #000 !important;
+
+}
+#drapd4{color: #000 !important;
+
+}
+#drapd5{color: #000 !important;
+
+}
+#drapd6{color: #000 !important;
+
+}
+#drapd7{color: #000 !important;
+
+}
+#drapd8{color: #000 !important;
+
+}
+
+/*  */
+.dropdown-menu li{
+    position: relative;;
+}
+@media (max-width:600px){
+   
+    
+    .dropdown-menu .submenu{
+    display: none;
+    position: absolute;
+     top: 0px;
+    left: 500%;
+    
+    
+}
+.dropdown-menu>li:hover>.submenu{
+    display: block;
+}
+.dropdown-menu li{
+    position: relative;;
+}
+}
+.dropdown-menu .submenu{
+    display: none;
+    position: absolute;
+    top: -7px;
+    left: 100%;
+}
+.dropdown-menu>li:hover>.submenu{
+    display: block;
+}
+
+
+/* /*scrolling* */
+
+
+    
+/* img icons hover showing in team */
+
+
+@media (min-width:900px) {
+    .boxd{
+        
+        position: absolute;
+        background-color:#fd7e14;;
+        text-align: start;
+        color: #fff;
+        width: 3%;
+        height: 39.vh;
+        opacity: 0;
+    }
+    .boxd:hover{
+        position: absolute;
+        background-color:#fd7e14;;
+        text-align: start;
+        color: #fff;
+        width: 3%;
+        opacity: 1;
+        height: 39.0vh;
+        object-fit: cover;
+    }
+  
+    
+}
+
+@media (max-width:900px) {
+
+     .boxd{
+        
+         display: none;
+        position: absolute;
+        background-color:#fd7e14;;
+        text-align: start;
+        color: #fff;
+        width: 3%;
+        height: 39.2vh;
+        opacity: 0;
+    }
+}
+
+
+#row1>div:hover{
+    opacity: 0.5;
+
+}
+#row2>div:hover{
+    opacity: 0.5;
+
+}
+#row3>div:hover{
+    opacity: 0.5;
+    
+
+}
+
+/*  */
+#one>i{
+    opacity:0;
+}
+#one>i:hover{
+
+    opacity: 1;
+}
+#two>i{
+    opacity:0;
+}
+#two>i:hover{
+
+    opacity: 1;
+}
+#three>i{
+    opacity:0;
+}
+#three>i:hover{
+
+    opacity: 1;
+}
+#four>i{
+    opacity:0;
+}
+#four>i:hover{
+
+    opacity: 1;
+}
+#five>i{
+    opacity:0;
+}
+#five>i:hover{
+
+    opacity: 1;
+}
+#six>i{
+    opacity:0;
+}
+#six>i:hover{
+
+    opacity: 1;
+}
+#seven>i{
+    opacity:0;
+}
+#seven>i:hover{
+
+    opacity: 1;
+}
+#eight>i{
+    opacity:0;
+}
+#eight>i:hover{
+
+    opacity: 1;
+}
+#nine>i{
+    opacity:0;
+}
+#nine>i:hover{
+
+    opacity: 1;
+}
+#ten>i{
+    opacity:0;
+}
+#ten>i:hover{
+
+    opacity: 1;
+}
+#elev>i{
+    opacity:0;
+}
+#elev>i:hover{
+
+    opacity: 1;
+}
+#twelve>i{
+    opacity:0;
+}
+#twelve>i:hover{
+
+    opacity: 1;
+}
+
+
+
+/* csss for blog page */
+
+#p-hov1:hover{
+    color: #fd7e14;
+    cursor: pointer;
+
+
+}
+#p-hov2:hover{
+    color: #fd7e14;
+    cursor: pointer;
+    
+    
+}
+#p-hov3:hover{
+    color: #fd7e14;
+    cursor: pointer;
+
+
+}

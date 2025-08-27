@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Banker.</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+        
+        #bgpic {
+            background-image: url("./hero_2.jpg");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            object-fit: cover;
+            height: 80vh;
+        }
+        
+        ul>li>a:hover {
+            color: gray !important;
+        }
+        
+        form>i:hover {
+            color: gray !important;
+        }
+        
+        /* Improved Dropdown Styling */
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu .dropdown-item {
+            position: relative;
+        }
+        
+        .dropdown-submenu {
+            position: relative;
+        }
+        
+        .dropdown-submenu .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -1px;
+        }
+        
+        /* Mobile Dropdown Styling */
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: white;
+                z-index: 1000;
+                padding: 1rem;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+            
+            .dropdown-menu {
+                position: static !important;
+                float: none;
+                width: 100%;
+                margin: 0.5rem 0;
+                border: none;
+                background-color: #f8f9fa;
+            }
+            
+            .dropdown-submenu .dropdown-menu {
+                position: static !important;
+                margin-left: 1.5rem;
+            }
+            
+            .dropdown-item {
+                color: #333 !important;
+                padding: 0.5rem 1.5rem;
+            }
+            
+            .navbar-nav .nav-link {
+                color: #333 !important;
+                padding: 0.75rem 1.5rem;
+            }
+            
+            .nav-link.active {
+                font-weight: 600;
+            }
+            
+            .navbar-toggler {
+                border-color: rgba(0,0,0,0.1);
+            }
+        }
+        
+        .filter-btn {
+            margin: 10px;
+            padding: 8px 15px;
+            background: #fd7e14;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .filter-btn.active {
+            background: #fd7e14;
+        }
+        .container {
+            padding: 20px;
+        }
+        .row {
+            transition: all 0.3s ease;
+        }
+        .hidden-row {
+            display: none;
+        }
+
+       
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-white bg-white fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Banker</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="Bankers"></h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              About
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="#">Team</a></li>
+              <li><a class="dropdown-item" href="#">Pricing</a></li>
+              <li><a class="dropdown-item" href="#">FAQ</a></li>
+              <li><a class="dropdown-item" href="#">Gallery</li>
+              <li><a class="dropdown-item" href="#">Services</li>
+              <li><a class="dropdown-item" href="#">Testimonials</li>
+              <li><a class="dropdown-item" href="#">More Links</li>
+               
+            </ul>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link" href="#">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+          <div class="icons"><i class="ri-facebook-line"></i>
+          <i class="ri-twitter-fill"></i>
+          <i class="ri-linkedin-fill"></i>
+            </div>
+        </ul>
+        </form>
+      </div>
+    </div>
+  </div>
+</nav>
+                              
+                   
+               <form class="d-flex ms-lg-4 mt-3 mt-lg-0">
+                   <a href="#" class="text-dark me-3" style="text-decoration: none;"><i class="ri-facebook-line fs-4 social-icon"></i></a>
+                   <a href="#" class="text-dark me-3"  style="text-decoration: none;"><i class="ri-twitter-line fs-4 social-icon"></i></a>
+                   <a href="#" class="text-dark"  style="text-decoration: none;"><i class="ri-linkedin-line fs-4 social-icon"></i></a>
+               </form>
+           </div>
+       </div>
+   </nav> 
+    <section id="bgpic">
+
+        <!-- Rest of your content remains unchanged -->
+        <div class="container-fluid text-center mt-0 ">
+            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                <!-- Carousel content -->
+                 <div class="carousel-inner">
+    <div class="carousel-item active  mx-auto mt-5" style="color: #fff;">
+     <h1 class="display-2 fw-bold" style="text-transform: uppercase;">Banking Solutions</h1>
+     <p class="fs-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit.  Provident <br> cupiditate  suscipit, magnam libero velit esse sapiente officia inventore!</p>
+     <h4>First</h5>
+    </div>
+    <div class="carousel-item mt-5"  style="color: #fff;" >
+       <h1 class="display-2 fw-bold" style="text-transform: uppercase;">Financing Solutions</h1>
+     <p class="fs-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit.  Provident  <br>cupiditate suscipit, magnam libero velit esse sapiente officia inventore!</p>
+     <h4>Second</h5>
+    </div>
+    <div class="carousel-item mt-5"  style="color: #fff;">
+      <h1 class="display-2 fw-bold" style="text-transform: uppercase;">Savings Accounts</h1>
+     <p class="fs-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident <br>cupiditate suscipit, magnam libero velit esse sapiente officia inventore!</p>
+     <h4>Third</h5>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+            </div>
+        </div>
+
+        <div class="icon text-center mt-5 pt-5 fs-3">
+         <a href="#2ndpage"  style="text-decoration: none;"> <i class="ri-arrow-down-circle-line " style=" color: #fff; "></i></a>
+        </div>
+    </section>
+
+
+    <div class="container-fluid gx-5 " id="2ndpage">
+       <!-- this one div for row  -->
+      <div class="row  mx-auto text-center mt-5 pt-5">
+        <div class="col-lg-4 col-sm-12 " data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+          <img src="./001-wallet.svg" alt="" style="height: 100px; width: 100px;" >
+          <h4>Money Savings</h4>
+          <p>A small river named Duden flows by their <br> place and supplies it with the necessary <br> regelialia.</p>
+          
+        </div>
+        <div class="col-lg-4 col-sm-12" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+           <img src="./004-cart.svg" alt="" style="height: 100px; width: 100px;" >
+          <h4>Online Shoppings</h4>
+          <p>A small river named Duden flows by their <br> place and supplies it with the necessary <br> regelialia.</p>
+      
+        </div>
+        <div class="col-lg-4 col-sm-12" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom" >
+           <img src="./006-credit-card.svg" alt="" style="height: 100px; width: 100px;" >
+          <h4>Credit / Debit Cards</h4>
+          <p>A small river named Duden flows by their <br> place and supplies it with the necessary <br> regelialia.</p>
+        </div>
+       
+
+      </div>
+
+      <!-- this one div for img anf text -->
+        <div class="row  mt-5 pt-5 mx-auto " style="gap: 0%;">
+        <div class="col-lg-5 col-sm-12 mx-auto " data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+          <img src="./about_2.jpg" alt="" class="img-fluid">
+        
+        </div>
+        <div class="col-lg-5 col-sm-12 mt-5" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+          <h3 class="">Amortization </h3>
+          <h3>Computation</h3>
+          <p>A small river named Duden flows by their place and supplies it with  the necessary regelialia.</p>
+          <ul class="list-unstyled ul-check success">
+                <li> <i class="ri-check-line"></i>Officia quaerat eaque neque</li>
+                <li> <i class="ri-check-line"></i>Lorem ipsum dolor sit amet</li>
+                <li><i class="ri-check-line"></i> Consectetur adipisicing elit</li>
+              </ul>
+              <div class="row inpbut">
+                <input class="col-lg-8 col-6 px-3" type="text" placeholder="Enter your Email" style="border-radius:100px; height: 50px; border: 1px solid lightgrey;">
+                <button class="col-6 col-lg-4" style="background-color: #fd7e14; color: #fff; border-radius:100px; height: 50px; border: none;">Submit Email</button>
+              </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- about page -->
+     <div class="container-fluid">
+        <div class="box text-center mt-5 pt-5" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+            <h2 class="heading pt-5 mt-5" style="color: #fd7e14;">About Us</h2>
+            <p class="para mt-3 fs-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus minima  <br>neque tempora reiciendis.</p>
+        </div>
+        
+        <div class="row mt-5  " style="gap: 0%;"> 
+            <div class="col-lg-5 col-sm-12 mx-auto" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+                <img src="./hero_1.jpg" alt="" class="img-fluid">
+            </div>
+            <div class="col-lg-5 mt-lg-0 mt-5" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+                <h5 class="fs-3">We Solve Your Financial Problem</h5>
+                <p class=" mt-4">Far far away, behind the word mountains, <br> far from the countries Vokalia and Consonantia,<br> there live the blind texts. Separated they live <br> in Bookmarksgrove right at the coast of the Semantics, <br>a large language ocean.</p>
+<p  class=" mt-4">
+
+
+    A small river named Duden flows by their place and <br> supplies it with the necessary regelialia. It is a paradisematic <br> country, in which roasted parts of sentences fly into your mouth.
+</p>
+            </div>
+        </div>
+     </div>
+
+     <!-- team-->
+
+     <div class="container">
+           <div class="box text-center mt-5 pt-5" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+            <h2 class="heading pt-5 mt-5" style="color: #fd7e14;">Meet Team</h2>
+            <p class="para mt-3 fs-5">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+        </div>
+
+        <div class="row mx-auto text-center">
+            <div  class="col-lg-3 bg" >
+                <div class="boxd" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <i class="ri-facebook-line"></i>
+                    <br>
+                    <i class="ri-twitter-line"></i>
+                    <br>
+                    <i class="ri-linkedin-line"></i>
+                     <br>
+                    <i class="ri-instagram-line"></i>
+                </div>
+                <img src="./person_5.jpg" alt="" class="img-fluid imfd"></img>
+                <h4>Kaiara Spencer</h4>
+               <p style="text-transform: uppercase;">Finance Manager</p>
+            </div>
+            <div class="col-lg-3">
+                <div class="boxd" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <i class="ri-facebook-line"></i>
+                    <br>
+                    <i class="ri-twitter-line"></i>
+                    <br>
+                    <i class="ri-linkedin-line"></i>
+                     <br>
+                    <i class="ri-instagram-line"></i>
+                </div>
+
+ <img src="./person_6.jpg" alt="" class="img-fluid">
+                <h4>Dave Simpson</h4>
+               <p style="text-transform: uppercase;">Marketing Manager</p>
+            </div>
+            <div class="col-lg-3" >
+                       <div class="boxd" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <i class="ri-facebook-line"></i>
+                    <br>
+                    <i class="ri-twitter-line"></i>
+                    <br>
+                    <i class="ri-linkedin-line"></i>
+                     <br>
+                    <i class="ri-instagram-line"></i>
+                </div>
+                 <img src="./person_7.jpg" alt="" class="img-fluid">
+                <h4>Ben Thompson</h4>
+               <p style="text-transform: uppercase;">Finance Manager</p>
+
+            </div>
+            <div class="col-lg-3" >
+                       <div class="boxd" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <i class="ri-facebook-line"></i>
+                    <br>
+                    <i class="ri-twitter-line"></i>
+                    <br>
+                    <i class="ri-linkedin-line"></i>
+                     <br>
+                    <i class="ri-instagram-line"></i>
+                </div>
+                 <img src="./person_8.jpg" alt="" class="img-fluid">
+                <h4>Kyla Stewart</h4>
+               <p style="text-transform: uppercase;">Finance Manager</p>
+
+            </div>
+        </div>
+        <!-- team -->
+        <div class="row mx-auto text-center">
+            <div class="col-lg-3" >
+                       <div class="boxd" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <i class="ri-facebook-line"></i>
+                    <br>
+                    <i class="ri-twitter-line"></i>
+                    <br>
+                    <i class="ri-linkedin-line"></i>
+                     <br>
+                    <i class="ri-instagram-line"></i>
+                </div>
+                <img src="./person_1.jpg" alt="" class="img-fluid">
+                <h4>Kaiara Spencer</h4>
+               <p style="text-transform: uppercase;">Accountant</p>
+            </div>
+            <div class="col-lg-3">
+                       <div class="boxd" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <i class="ri-facebook-line"></i>
+                    <br>
+                    <i class="ri-twitter-line"></i>
+                    <br>
+                    <i class="ri-linkedin-line"></i>
+                     <br>
+                    <i class="ri-instagram-line"></i>
+                </div>
+
+ <img src="./person_2.jpg" alt="" class="img-fluid">
+                <h4>Dave Simpson</h4>
+               <p style="text-transform: uppercase;">Bank Teller</p>
+            </div>
+            <div class="col-lg-3" >
+                       <div class="boxd" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <i class="ri-facebook-line"></i>
+                    <br>
+                    <i class="ri-twitter-line"></i>
+                    <br>
+                    <i class="ri-linkedin-line"></i>
+                     <br>
+                    <i class="ri-instagram-line"></i>
+                </div>
+                 <img src="./pe3.jpg.webp" alt="" class="img-fluid">
+                <h4>Ben Thompson</h4>
+               <p style="text-transform: uppercase;">Bank Teller</p>
+
+            </div>
+            <div class="col-lg-3" >
+                       <div class="boxd" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <i class="ri-facebook-line"></i>
+                    <br>
+                    <i class="ri-twitter-line"></i>
+                    <br>
+                    <i class="ri-linkedin-line"></i>
+                     <br>
+                    <i class="ri-instagram-line"></i>
+                </div>
+                 <img src="./person_4.jpg" alt="" class="img-fluid">
+                <h4>Cheris Stewart</h4>
+               <p style="text-transform: uppercase;">Bank Teller</p>
+
+            </div>
+        </div>
+       
+        </div>
+        <h1 class="mt-5 pt-5"  style="border-bottom: 2px solid lightgrey"></h1>
+
+        <div class="container text-center ">
+
+              <h2 class="heading pt-5 mt-5" style="color: #fd7e14;">Gallery</h2>
+
+    <!-- Filter Buttons -->
+    <div class="text-center mt-3">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="events">Events</button>
+        <button class="filter-btn" data-filter="party">Party</button>
+        <button class="filter-btn" data-filter="holidays">Holidays</button>
+    </div>
+
+    <!-- Image Container -->
+    <div id="containerall" class="container p-0 m-0">
+        <div id="row1" class="row m-5 p-0">
+            <div id="one" class="col-lg-3 col-sm-12 " style="display:flex; align-items: center; justify-content: center; color: white; ">
+                <i class="ri-search-2-line" style="position: absolute;  "></i>
+                <img src="./img_1.jpg" alt="" class="img-fluid mt-lg-0 mt-5">
+            </div>
+            <div class="col-lg-3 col-sm-12 ">
+                <img src="./img_2.jpg" alt="" class="img-fluid mt-lg-0 mt-5">
+            </div>
+            <div class="col-lg-3 col-sm-12 ">
+                <img src="./img_3.jpg" alt="" class="img-fluid mt-lg-0 mt-5">
+            </div>
+            <div class="col-lg-3 col-sm-12 ">
+                <img src="./img_4.jpg" alt="" class="img-fluid mt-lg-0 mt-5">
+            </div>
+        </div>
+        <!-- 2nd row -->
+        <div id="row2" class="row m-5">
+            <div class="col-lg-3 col-sm-12 ">
+                <img src="./img_5.jpg" alt="" class="img-fluid mt-lg-0 mt-5">
+            </div>
+            <div class="col-lg-3 col-sm-12">
+                <img src="./img_1.jpg" alt="" class="img-fluid mt-lg-0 mt-5">
+            </div>
+            <div class="col-lg-3 col-sm-12 ">
+                <img src="./img_2.jpg" alt="" class="img-fluid mt-lg-0 mt-5">
+            </div>
+            <div class="col-lg-3 col-sm-12 ">
+                <img src="./img_3.jpg" alt="" class="img-fluid mt-lg-0 mt-5">
+            </div>
+        </div>
+        <!-- 3rd row -->
+        <div id="row3" class="row m-5 ">
+            <div class="col-lg-3 col-sm-12  ">
+                <img src="./img_3.jpg" alt="" class="img-fluid mt-lg-0 mt-5">
+            </div>
+            <div class="col-lg-3 col-sm-12 ">
+                <img src="./img_5.jpg" alt="" class="img-fluid mt-lg-0 mt-5">
+            </div>
+            <div class="col-lg-3 col-sm-12   ">
+                <img src="./img_1.jpg" alt="" class="img-fluid mt-lg-0 mt-5">
+            </div>
+            <div class="col-lg-3 col-sm-12 ">
+                <img src="./img_2.jpg" alt="" class="img-fluid mt-lg-0 mt-5">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const rows = {
+                'all': document.querySelectorAll('#containerall .row'),
+                'events': document.getElementById('row1'),
+                'party': document.getElementById('row2'),
+                'holidays': document.getElementById('row3')
+            };
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // First hide all rows
+                    rows['all'].forEach(row => {
+                        row.classList.add('hidden-row');
+                    });
+                    
+                    // Then show the selected ones
+                    if (filterValue === 'all') {
+                        rows['all'].forEach(row => {
+                            row.classList.remove('hidden-row');
+                        });
+                    } else {
+                        rows[filterValue].classList.remove('hidden-row');
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Scripting beneath -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+             function closeNavbar() {
+            if (window.innerWidth < 992) { // Only for mobile
+                const navbarToggler = document.querySelector('.navbar-toggler');
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                
+                if (navbarCollapse.classList.contains('show')) {
+                    // Manually trigger click on the toggler to close the navbar
+                    navbarToggler.click();
+                }
+                
+                // Close all dropdowns
+                document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                    menu.classList.remove('show');
+                });
+            }
+        }
+
+        // Function to handle dropdown click behavior
+        function handleDropdownClick(event) {
+            if (window.innerWidth < 992) { // Only for mobile
+                event.preventDefault();
+                const dropdown = event.target.closest('.dropdown');
+                const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+                
+                // Close all other dropdowns first
+                document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                    if (menu !== dropdownMenu) {
+                        menu.classList.remove('show');
+                    }
+                });
+                
+                // Toggle the clicked dropdown
+                dropdownMenu.classList.toggle('show');
+                
+                // Prevent default Bootstrap behavior
+                event.stopPropagation();
+            }
+        }
+
+        // Function to handle submenu click behavior
+        function handleSubmenuClick(event) {
+            if (window.innerWidth < 992) { // Only for mobile
+                event.preventDefault();
+                const submenu = event.target.nextElementSibling;
+                submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+                event.stopPropagation();
+            }
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(event) {
+            if (window.innerWidth < 992) { // Only for mobile
+                if (!event.target.closest('.dropdown') && !event.target.closest('.navbar-toggler')) {
+                    document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                        menu.classList.remove('show');
+                    });
+                }
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Filter button functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const rows = {
+                'all': document.querySelectorAll('#containerall .row'),
+                'events': document.getElementById('row1'),
+                'party': document.getElementById('row2'),
+                'holidays': document.getElementById('row3')
+            };
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    rows['all'].forEach(row => {
+                        row.classList.add('hidden-row');
+                    });
+                    
+                    if (filterValue === 'all') {
+                        rows['all'].forEach(row => {
+                            row.classList.remove('hidden-row');
+                        });
+                    } else {
+                        rows[filterValue].classList.remove('hidden-row');
+                    }
+                });
+            });
+
+            // Scroll functionality for navbar color change
+            window.addEventListener('scroll', function() {
+                const navbar = document.getElementById('scrollNav');
+                const navTexts = document.querySelectorAll('.nav-text');
+                const socialIcons = document.querySelectorAll('.social-icon');
+                
+                if (window.scrollY > 10) {
+                    navbar.style.backgroundColor = '#fff';
+                    navbar.style.borderBottom = '#000';
+                    
+                    navTexts.forEach(element => {
+                        element.style.color = '#000';
+                    });
+                    
+                    socialIcons.forEach(icon => {
+                        icon.style.color = '#000';
+                    });
+                    
+                    document.querySelector('.navbar-toggler').style.borderColor = '#000';
+                    document.querySelector('.navbar-toggler-icon').style.backgroundImage = "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e\")";
+                } else {
+                    navbar.style.backgroundColor = 'transparent';
+                    navbar.style.borderBottom = '1px solid rgba(167, 165, 165, 0.3)';
+                    
+                    navTexts.forEach(element => {
+                        element.style.color = '#000';
+                    });
+                    
+                    socialIcons.forEach(icon => {
+                        icon.style.color = '#000';
+                    });
+                    
+                    document.querySelector('.navbar-toggler').style.borderColor = 'rgba(255,255,255,0.5)';
+                    document.querySelector('.navbar-toggler-icon').style.backgroundImage = "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e\")";
+                }
+            });
+            
+            // Initialize Bootstrap dropdowns
+            var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
+            var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+                return new bootstrap.Dropdown(dropdownToggleEl);
+            });
+        });
+
+
+
+        AOS.init();
+    </script>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('scrollNav');
+            const navTexts = document.querySelectorAll('.nav-text');
+            const socialIcons = document.querySelectorAll('.social-icon');
+            
+            if (window.scrollY>10) {
+                navbar.style.backgroundColor = '#fff';
+                navbar.style.borderBottom = '#000';
+                
+                navTexts.forEach(element => {
+                    element.style.color = '#000';
+                });
+                
+                socialIcons.forEach(icon => {
+                    icon.style.color = '#000';
+                });
+                
+                document.querySelector('.navbar-toggler').style.borderColor = '#000';
+                document.querySelector('.navbar-toggler-icon').style.backgroundImage = "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e\")";
+            } else {
+                navbar.style.backgroundColor = 'transparent';
+                navbar.style.borderBottom = '1px solid rgba(167, 165, 165, 0.3)';
+                
+                navTexts.forEach(element => {
+                    element.style.color = '#000';
+                });
+                
+                socialIcons.forEach(icon => {
+                    icon.style.color = '#000';
+                });
+                
+                document.querySelector('.navbar-toggler').style.borderColor = 'rgba(255,255,255,0.5)';
+                document.querySelector('.navbar-toggler-icon').style.backgroundImage = "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e\")";
+            }
+        });
+        
+        // Initialize Bootstrap dropdowns
+        var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
+        var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+            return new bootstrap.Dropdown(dropdownToggleEl)
+        });
+        
+        // Handle submenu dropdowns
+        document.querySelectorAll('.dropdown-submenu a.dropdown-item').forEach(function(element) {
+            element.addEventListener('click', function(e) {
+                e.stopPropagation();
+                var submenu = this.nextElementSibling;
+                submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

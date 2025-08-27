@@ -1,0 +1,1439 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Banker.</title>
+    <!-- swiper cdn -->
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+    <!-- swiper style -->
+     <style>
+        .swiper {
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+    }
+
+    .swiper-slide {
+      font-size: 18px;
+      color: #fff;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      padding: 40px 60px;
+    }
+
+    .parallax-bg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 130%;
+      height: 100%;
+      -webkit-background-size: cover;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .swiper-slide .title {
+      font-size: 41px;
+      font-weight: 300;
+    }
+
+    .swiper-slide .subtitle {
+      font-size: 21px;
+    }
+
+    .swiper-slide .text {
+      font-size: 14px;
+      max-width: 400px;
+      line-height: 1.3;
+    }
+
+    @media (max-width:600px) {
+        #imgs1{
+            height: 100px;
+        }
+        
+    }
+     </style>
+     <!-- swiper end style -->
+
+
+    <!-- swiper02 style  -->
+     <style>
+         .swiper {
+      width: 100%;
+      height: 70%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+     </style>
+     <!--Sw02 style end  -->
+
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+        
+        #bgpic {
+            background-image: url("./hero_2.jpg");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            object-fit: cover;
+            height: 80vh;
+        }
+        
+        ul>li>a:hover {
+            color: gray !important;
+        }
+        
+        form>i:hover {
+            color: gray !important;
+        }
+        
+        /* Improved Dropdown Styling */
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu .dropdown-item {
+            position: relative;
+        }
+        
+        .dropdown-submenu {
+            position: relative;
+        }
+        
+        .dropdown-submenu .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -1px;
+        }
+        
+        /* Mobile Dropdown Styling */
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: white;
+                z-index: 1000;
+                padding: 1rem;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+            
+            .dropdown-menu {
+                position: static !important;
+                float: none;
+                width: 100%;
+                margin: 0.5rem 0;
+                border: none;
+                background-color: #f8f9fa;
+            }
+            
+            .dropdown-submenu .dropdown-menu {
+                position: static !important;
+                margin-left: 1.5rem;
+            }
+            
+            .dropdown-item {
+                color: black;
+                padding: 0.5rem 1.5rem;
+            }
+            
+            .navbar-nav .nav-link {
+                color: black;
+                padding: 0.75rem 1.5rem;
+            }
+            
+            .nav-link.active {
+                font-weight: 600;
+            }
+            
+            .navbar-toggler {
+                border-color: rgba(0,0,0,0.1);
+            }
+        }
+        
+        .filter-btn {
+            margin: 10px;
+            padding: 8px 15px;
+            background: #fd7e14;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .filter-btn.active {
+            background: #fd7e14;
+        }
+        .container {
+            padding: 20px;
+        }
+        .row {
+            transition: all 0.3s ease;
+        }
+        .hidden-row {
+            display: none;
+        }
+
+       
+    </style>
+</head>
+
+<body>
+    <div class=" fixed-top" style=" margin-top: 0px;">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary" style="">
+                <div class="container-fluid">
+                    <a class="navbar-brand text-dark fs-2 nav-text" href="#">Banker.<span class="text-danger">.</span></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                      <!-- home -->
+                         <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                   <li class="nav-item">
+                       <a class="nav-link active text-dark fs-5 nav-text" aria-current="page" href="#">Home</a>
+                   </li>
+                   <li class="nav-item dropdown">
+                       <a class="nav-link dropdown-toggle text-dark fs-5 nav-text" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                           About Us
+                       </a>
+                       <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                           <li><a class="dropdown-item" href="#Terms">Term</a></li>
+                           <li><a class="dropdown-item" href="#price">Pricing</a></li>
+                           <li><a class="dropdown-item" href="#FAQ">FAQ</a></li>
+                           <li><a class="dropdown-item" href="#Gallery">Gallery</a></li>
+                           
+                           <li><a class="dropdown-item" href="#Service">Services</a></li>
+                           <li><a class="dropdown-item" href="#swiper">Terminals</a></li>
+                           <li class="dropdown-submenu">
+                               <a class="dropdown-item dropdown-toggle" href="#">More links</a>
+                               <ul class="dropdown-menu">
+                                   <li><a class="dropdown-item" href="#">Menu One</a></li>
+                                   <li><a class="dropdown-item" href="#">Menu Two</a></li>
+                                   <li><a class="dropdown-item" href="#">Menu Three</a></li>
+                               </ul>
+                           </li>
+                       </ul>
+                   </li>
+                   <li class="nav-item">
+                       <a class="nav-link text-dark fs-5 nav-text" href="#blog">Blog</a>
+                   </li>
+                   <li class="nav-item">
+                       <a class="nav-link text-dark fs-5 nav-text" href="#contact">Contact</a>
+                   </li>
+               </ul>
+                           
+
+                 <form class="d-flex ms-lg-4 mt-3 mt-lg-0">
+                   <a href="#contact" class="text-dark me-3" style="text-decoration: none;"><i class="ri-facebook-line fs-4 social-icon"></i></a>
+                   <a href="#contact" class="text-dark me-3"  style="text-decoration: none;"><i class="ri-twitter-line fs-4 social-icon"></i></a>
+                   <a href="#contact" class="text-dark"  style="text-decoration: none;"><i class="ri-linkedin-line fs-4 social-icon"></i></a>
+               </form>
+                              
+                           
+                        
+                       
+                    </div>
+                </div>
+            </nav>
+            
+        </div>
+    
+    <!-- codefor end -->
+
+
+ 
+
+
+   <!-- section here -->
+    <section id="bgpic">
+
+        <!-- Rest of your content remains unchanged -->
+        <div class="container-fluid text-center   " style="margin-top: 5%;">
+            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                <!-- Carousel content -->
+                 <div class="carousel-inner">
+    <div class="carousel-item active  mx-auto mt-5" style="color: #fff;">
+     <h1 class="display-2 fw-bold mt-5" style="text-transform: uppercase;">Saving Accounts</h1>
+     <p class="fs-3 mt-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.  Provident <br> cupiditate  suscipit, magnam libero velit esse sapiente officia inventore!</p>
+     <h4>First</h5>
+    </div>
+    <div class="carousel-item mt-5"  style="color: #fff;" >
+       <h1 class="display-2 fw-bold mt-5" style="text-transform: uppercase;">Saving Accounts</h1>
+     <p class="fs-3 mt-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.  Provident  <br>cupiditate suscipit, magnam libero velit esse sapiente officia inventore!</p>
+     <h4>Second</h5>
+    </div>
+    <div class="carousel-item mt-5"  style="color: #fff;">
+      <h1 class="display-2 fw-bold mt-5" style="text-transform: uppercase;">Savings Accounts</h1>
+     <p class="fs-3 mt-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident <br>cupiditate suscipit, magnam libero velit esse sapiente officia inventore!</p>
+     <h4>Third</h5>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+            </div>
+        </div>
+
+        <div class="icon text-center mt-5 fs-3">
+         <a href="#2ndpage"  style="text-decoration: none;"> <i class="ri-arrow-down-circle-line " style=" color: #fff; "></i></a>
+        </div>
+
+    </section>
+
+
+    <div class="container-fluid gx-5 " id="2ndpage">
+       <!-- this one div for row  -->
+      <div class="row  mx-auto text-center mt-5 pt-5">
+        <div class="col-lg-4 col-sm-12 " data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+          <img src="./001-wallet.svg" alt="" style="height: 100px; width: 100px;" >
+          <h4>Money Savings</h4>
+          <p>A small river named Duden flows by their <br> place and supplies it with the necessary <br> regelialia.</p>
+          
+        </div>
+        <div class="col-lg-4 col-sm-12" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+           <img src="./004-cart.svg" alt="" style="height: 100px; width: 100px;" >
+          <h4>Online Shoppings</h4>
+          <p>A small river named Duden flows by their <br> place and supplies it with the necessary <br> regelialia.</p>
+      
+        </div>
+        <div class="col-lg-4 col-sm-12" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom" >
+           <img src="./006-credit-card.svg" alt="" style="height: 100px; width: 100px;" >
+          <h4>Credit / Debit Cards</h4>
+          <p>A small river named Duden flows by their <br> place and supplies it with the necessary <br> regelialia.</p>
+        </div>
+       
+
+      </div>
+
+      <!-- this one div for img anf text -->
+        <div class="row  mt-5 pt-5 mx-auto " style="gap: 0%;">
+        <div class="col-lg-5 col-sm-12 mx-auto " data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+          <img src="./about_2.jpg" alt="" class="img-fluid">
+        
+        </div>
+        <div class="col-lg-5 col-sm-12 mt-5" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+          <h3 class="">Amortization </h3>
+          <h3>Computation</h3>
+          <p>A small river named Duden flows by their place and supplies it with  the necessary regelialia.</p>
+          <ul class="list-unstyled ul-check success">
+                <li> <i class="ri-check-line"></i>Officia quaerat eaque neque</li>
+                <li> <i class="ri-check-line"></i>Lorem ipsum dolor sit amet</li>
+                <li><i class="ri-check-line"></i> Consectetur adipisicing elit</li>
+              </ul>
+              <div class="row inpbut">
+                <input class="col-lg-8 col-6 px-3" type="text" placeholder="Enter your Email" style="border-radius:100px; height: 50px; border: 1px solid lightgrey;">
+                <button class="col-6 col-lg-4" style="background-color: #fd7e14; color: #fff; border-radius:100px; height: 50px; border: none;">Submit Email</button>
+              </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- about page -->
+     <div id="about" class="container-fluid">
+        <div class="box text-center mt-5 pt-5" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+            <h2 class="heading pt-5 mt-5" style="color: #fd7e14;">About Us</h2>
+            <p class="para mt-3 fs-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus minima  <br>neque tempora reiciendis.</p>
+        </div>
+        
+        <div class="row mt-5  " style="gap: 0%;"> 
+            <div class="col-lg-5 col-sm-12 mx-auto" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+                <img src="./hero_1.jpg" alt="" class="img-fluid">
+            </div>
+            <div class="col-lg-5 mt-lg-0 mt-5" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+                <h5 class="fs-3">We Solve Your Financial Problem</h5>
+                <p class=" mt-4">Far far away, behind the word mountains, <br> far from the countries Vokalia and Consonantia,<br> there live the blind texts. Separated they live <br> in Bookmarksgrove right at the coast of the Semantics, <br>a large language ocean.</p>
+<p  class=" mt-4">
+
+
+    A small river named Duden flows by their place and <br> supplies it with the necessary regelialia. It is a paradisematic <br> country, in which roasted parts of sentences fly into your mouth.
+</p>
+            </div>
+        </div>
+     </div>
+
+     <!-- team-->
+
+     <div id="Terms" class="container">
+           <div class="box text-center mt-5 pt-5" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+            <h2 class="heading pt-5 mt-5" style="color: #fd7e14;">Meet Team</h2>
+            <p class="para mt-3 fs-5">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+        </div>
+
+        <div class="row mx-auto text-center">
+            <div  class="col-lg-3 bg" >
+                <div class="boxd" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <i class="ri-facebook-line"></i>
+                    <br>
+                    <i class="ri-twitter-line"></i>
+                    <br>
+                    <i class="ri-linkedin-line"></i>
+                     <br>
+                    <i class="ri-instagram-line"></i>
+                </div>
+                <img src="./person_5.jpg" alt="" class="img-fluid imfd" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom"></img>
+                <h4>Kaiara Spencer</h4>
+               <p style="text-transform: uppercase;">Finance Manager</p>
+            </div>
+            <div class="col-lg-3">
+                <div class="boxd" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <i class="ri-facebook-line"></i>
+                    <br>
+                    <i class="ri-twitter-line"></i>
+                    <br>
+                    <i class="ri-linkedin-line"></i>
+                     <br>
+                    <i class="ri-instagram-line"></i>
+                </div>
+
+ <img src="./person_6.jpg" alt="" class="img-fluid" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+                <h4>Dave Simpson</h4>
+               <p style="text-transform: uppercase;">Marketing Manager</p>
+            </div>
+            <div class="col-lg-3" >
+                       <div class="boxd" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <i class="ri-facebook-line"></i>
+                    <br>
+                    <i class="ri-twitter-line"></i>
+                    <br>
+                    <i class="ri-linkedin-line"></i>
+                     <br>
+                    <i class="ri-instagram-line"></i>
+                </div>
+                 <img src="./person_7.jpg" alt="" class="img-fluid" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+                <h4>Ben Thompson</h4>
+               <p style="text-transform: uppercase;">Finance Manager</p>
+
+            </div>
+            <div class="col-lg-3" >
+                       <div class="boxd" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <i class="ri-facebook-line"></i>
+                    <br>
+                    <i class="ri-twitter-line"></i>
+                    <br>
+                    <i class="ri-linkedin-line"></i>
+                     <br>
+                    <i class="ri-instagram-line"></i>
+                </div>
+                 <img src="./person_8.jpg" alt="" class="img-fluid" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+                <h4>Kyla Stewart</h4>
+               <p style="text-transform: uppercase;">Finance Manager</p>
+
+            </div>
+        </div>
+        <!-- team -->
+        <div class="row mx-auto text-center">
+            <div class="col-lg-3" >
+                       <div class="boxd" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <i class="ri-facebook-line"></i>
+                    <br>
+                    <i class="ri-twitter-line"></i>
+                    <br>
+                    <i class="ri-linkedin-line"></i>
+                     <br>
+                    <i class="ri-instagram-line"></i>
+                </div>
+                <img src="./person_1.jpg" alt="" class="img-fluid" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+                <h4>Kaiara Spencer</h4>
+               <p style="text-transform: uppercase;">Accountant</p>
+            </div>
+            <div class="col-lg-3">
+                       <div class="boxd" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <i class="ri-facebook-line"></i>
+                    <br>
+                    <i class="ri-twitter-line"></i>
+                    <br>
+                    <i class="ri-linkedin-line"></i>
+                     <br>
+                    <i class="ri-instagram-line"></i>
+                </div>
+
+ <img src="./person_2.jpg" alt="" class="img-fluid" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+                <h4>Dave Simpson</h4>
+               <p style="text-transform: uppercase;">Bank Teller</p>
+            </div>
+            <div class="col-lg-3" >
+                       <div class="boxd" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <i class="ri-facebook-line"></i>
+                    <br>
+                    <i class="ri-twitter-line"></i>
+                    <br>
+                    <i class="ri-linkedin-line"></i>
+                     <br>
+                    <i class="ri-instagram-line"></i>
+                </div>
+                 <img src="./pe3.jpg.webp" alt="" class="img-fluid" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+                <h4>Ben Thompson</h4>
+               <p style="text-transform: uppercase;">Bank Teller</p>
+
+            </div>
+            <div class="col-lg-3" >
+                       <div class="boxd" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <i class="ri-facebook-line"></i>
+                    <br>
+                    <i class="ri-twitter-line"></i>
+                    <br>
+                    <i class="ri-linkedin-line"></i>
+                     <br>
+                    <i class="ri-instagram-line"></i>
+                </div>
+                 <img src="./person_4.jpg" alt="" class="img-fluid" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+                <h4>Cheris Stewart</h4>
+               <p style="text-transform: uppercase;">Bank Teller</p>
+
+            </div>
+        </div>
+       
+        </div>
+        <h1 class="mt-5 pt-5"  style="border-bottom: 2px solid lightgrey"></h1>
+<!-- gallery -->
+        <div id="Gallery" class="container text-center ">
+
+              <h2 class="heading pt-5 mt-5" style="color: #fd7e14;">Gallery</h2>
+
+    <!-- Filter Buttons -->
+    <div class="text-center mt-3">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="events">Events</button>
+        <button class="filter-btn" data-filter="party">Party</button>
+        <button class="filter-btn" data-filter="holidays">Holidays</button>
+    </div>
+
+    <!-- Image Container -->
+    <div id="containerall" class="container p-0 m-0">
+        <div id="row1" class="row m-5 p-0">
+            <div id="one" class="col-lg-3 col-sm-12 " style="display:flex; align-items: center; justify-content: center; color: white; ">
+                <i class="ri-search-2-line" style="position: absolute;"></i>
+                <img src="./img_1.jpg" alt="" class="img-fluid mt-lg-0 mt-5">
+            </div>
+            <div id="two" class="col-lg-3 col-sm-12 " style="display:flex; align-items: center; justify-content: center; color: white; ">
+                  <i class="ri-search-2-line" style="position: absolute;"></i>
+                <img src="./img_2.jpg" alt="" class="img-fluid mt-lg-0 mt-5">
+            </div>
+            <div id="three" class="col-lg-3 col-sm-12 " style="display:flex; align-items: center; justify-content: center; color: white; ">
+                  <i class="ri-search-2-line" style="position: absolute;"></i>
+                <img src="./img_3.jpg" alt="" class="img-fluid mt-lg-0 mt-5">
+            </div>
+            <div id="four" class="col-lg-3 col-sm-12 " style="display:flex; align-items: center; justify-content: center; color: white; ">
+                  <i class="ri-search-2-line" style="position: absolute;"></i>
+                <img src="./img_4.jpg" alt="" class="img-fluid mt-lg-0 mt-5">
+            </div>
+        </div>
+        <!-- 2nd row -->
+        <div id="row2" class="row m-5">
+            <div id="five" class="col-lg-3 col-sm-12 " style="display:flex; align-items: center; justify-content: center; color: white; ">
+                  <i class="ri-search-2-line" style="position: absolute;"></i>
+                <img src="./img_5.jpg" alt="" class="img-fluid mt-lg-0 mt-5">
+            </div>
+            <div id="six" class="col-lg-3 col-sm-12" style="display:flex; align-items: center; justify-content: center; color: white; ">
+                  <i class="ri-search-2-line" style="position: absolute;"></i>
+                <img src="./img_1.jpg" alt="" class="img-fluid mt-lg-0 mt-5">
+            </div>
+            <div id="seven" class="col-lg-3 col-sm-12 " style="display:flex; align-items: center; justify-content: center; color: white; ">
+                  <i class="ri-search-2-line" style="position: absolute;"></i>
+                <img src="./img_2.jpg" alt="" class="img-fluid mt-lg-0 mt-5">
+            </div>
+            <div id="eight" class="col-lg-3 col-sm-12 " style="display:flex; align-items: center; justify-content: center; color: white; ">
+                  <i class="ri-search-2-line" style="position: absolute;"></i>
+                <img src="./img_3.jpg" alt="" class="img-fluid mt-lg-0 mt-5">
+            </div>
+        </div>
+        <!-- 3rd row -->
+        <div id="row3" class="row m-5 ">
+            <div id="nine" class="col-lg-3 col-sm-12  " style="display:flex; align-items: center; justify-content: center; color: white; ">
+                  <i class="ri-search-2-line" style="position: absolute;"></i>
+                <img src="./img_3.jpg" alt="" class="img-fluid mt-lg-0 mt-5">
+            </div>
+            <div id="ten" class="col-lg-3 col-sm-12 " style="display:flex; align-items: center; justify-content: center; color: white; ">
+                  <i class="ri-search-2-line" style="position: absolute;"></i>
+                <img src="./img_5.jpg" alt="" class="img-fluid mt-lg-0 mt-5">
+            </div>
+            <div id="elev" class="col-lg-3 col-sm-12   " style="display:flex; align-items: center; justify-content: center; color: white; ">
+                  <i class="ri-search-2-line" style="position: absolute;"></i>
+                <img src="./img_1.jpg" alt="" class="img-fluid mt-lg-0 mt-5">
+            </div>
+            <div id="twelve" class="col-lg-3 col-sm-12 " style="display:flex; align-items: center; justify-content: center; color: white; ">
+                  <i class="ri-search-2-line" style="position: absolute;"></i>
+                <img src="./img_2.jpg" alt="" class="img-fluid mt-lg-0 mt-5">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- slider next div -->
+<div class="container">
+
+    <div class="box text-center mt-5 pt-0" data-aos="fade-up"
+         data-aos-anchor-placement="top-bottom">
+                <h2 class="heading pt-5 mt-5" style="color: #fd7e14;">How it Works</h2>
+                <p class="para mt-3 fs-5">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            </div>
+
+            <!--  -->
+
+            
+</div>
+
+
+
+
+<!-- swiper Html code -->
+   <!-- swiper body code start  -->
+      <div style="--swiper-navigation-color: #fd7e14; --swiper-pagination-color: #fff ; " class="swiper mySwiper mb-5" >
+    <div class="parallax-bg" style="background-color: #000;color: #ddcaca;" data-swiper-parallax="-23%"></div>
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" style=" display: flex; align-items: center; justify-content: space-evenly; flex-wrap: wrap; color: #000; background-color: #fff; " >
+         <div class="pic">
+              <img id="imgs1" src="./slide_1.jpg" alt="" class="img-fluid" style="height:300px;" >
+          </div>
+          <div class="text" data-swiper-parallax="-100">
+           <h1 class="fw-bold" style="color: #fd7e14;">01. Online Applications</h1>
+           <p class="fs-5">
+             A small  river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
+          </p>
+          <button style="color: #fff; background-color: #fd7e14;border: none; padding: 15px 30px; border-radius: 50px;">Learn More</button>
+        </div>
+      </div>
+      <div class="swiper-slide"  style="display: flex; align-items: center; justify-content: space-evenly; flex-wrap: wrap; color: #000; background-color: #fff; ">
+         <div class="pic">
+             <img src="./slide_2.jpg" alt="" class="img-fluid" style="height: 300px;">
+            </div>
+            <div class="text" data-swiper-parallax="-100">
+              <h1 class="fw-bold" style="color: #fd7e14;">02. Get an approval</h1>
+          
+          <p class="fs-5">
+             A small  river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
+          </p>
+          <button style="color: #fff; background-color: #fd7e14; border: none; padding: 15px 30px; border-radius: 50px;">Learn More</button>
+        </div>
+    </div>
+    <div class="swiper-slide"  style="display: flex; align-items: center; justify-content: space-evenly; flex-wrap: wrap; color: #000; background-color: #fff;">
+        <div class="pic">
+            <img src="./img_4.jpg" alt="" class="img-fluid" style="height: 300px;">
+        </div>
+        <div class="text" data-swiper-parallax="-100">
+              <h1 class="fw-bold" style="color: #fd7e14;">03. Card delivery</h1>
+          
+          <p class="fs-5">
+             A small  river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
+          </p>
+          <button style="color: #fff; background-color: #fd7e14; border: none; padding: 15px 30px; border-radius: 50px;">Learn More</button>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+    <!-- swiper body code  end -->
+
+    <!-- now  OUR SERVICES CODE HERE -->
+
+    <div id="Service" class="container-fluid  " style="background: #f8f9fa;;">
+        <h1 class="mx-auto text-center pt-5" style="color: #fd7e14;">Our Services</h1>
+        <!-- rows  -->
+        <div class="container-fluid gx-5 " id="2ndpage">
+       <!-- this one div for row  -->
+      <div class="row ms-lg-5 ps-lg-5 mt-5 pt-5">
+        <div class="col-lg-4 col-sm-12 " data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+          <img src="./001-wallet.svg" alt="" style="height: 100px; width: 100px;" >
+          <h4>Business Consulting</h4>
+          <p>A small river named Duden flows by their <br> place and supplies it with the necessary <br> regelialia.</p>
+           <a href="#" style="color: #fd7e14; text-decoration: none;">learn more</a>
+          
+        </div>
+        <div class="col-lg-4 col-sm-12" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom" >
+           <img src="./006-credit-card.svg" alt="" style="height: 100px; width: 100px;" >
+          <h4>Credit / Debit Cards</h4>
+          <p>A small river named Duden flows by their <br> place and supplies it with the necessary <br> regelialia.</p>
+           <a href="#" style="color: #fd7e14; text-decoration: none;">learn more</a>
+        </div>
+        <div class="col-lg-4 col-sm-12" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+           <img src="./002-rich.svg" alt="" style="height: 100px; width: 100px;" >
+          <h4>Income Monitoring</h4>
+          <p>A small river named Duden flows by their <br> place and supplies it with the necessary <br> regelialia.</p>
+       <a href="#" style="color: #fd7e14; text-decoration: none;">learn more</a>
+        </div>
+       
+
+      </div>
+      <div class="row  ms-lg-5 mt-lg-5 ps-lg-5 mt-sm-0 pt-sm-0">
+        <div class="col-lg-4 col-sm-12 " data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+          <img src="./003-notes.svg" alt="" style="height: 100px; width: 100px;" >
+          <h4>Insurance Consulting</h4>
+          <p>A small river named Duden flows by their <br> place and supplies it with the necessary <br> regelialia.</p>
+           <a href="#" style="color: #fd7e14; text-decoration: none;">learn more</a>
+        </div>
+        <div class="col-lg-4 col-sm-12" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+           <img src="./004-cart.svg" alt="" style="height: 100px; width: 100px;" >
+          <h4>Financial Investment</h4>
+          <p>A small river named Duden flows by their <br> place and supplies it with the necessary <br> regelialia.</p>
+       <a href="#" style="color: #fd7e14; text-decoration: none;">learn more</a>
+        </div>
+        <div class="col-lg-4 col-sm-12" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom" >
+           <img src="./005-megaphone.svg" alt="" style="height: 100px; width: 100px;" >
+          <h4>Financial Management</h4>
+          <p>A small river named Duden flows by their <br> place and supplies it with the necessary <br> regelialia.</p>
+          <a href="#" style="color: #fd7e14; text-decoration: none;">learn more</a>
+        </div>
+       
+
+      </div>
+
+    
+    </div>
+
+    </div>
+
+    <!-- swiper 02 code html -->
+    <h1 id="swiper" class="mt-lg-5 pt-lg-5 mt-5 pt-5 mx-auto text-center fw-bold" style="color: #fd7e14;">Happy Customers</h1>
+      <div  class="swiper mySwiper">
+       
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" style=" display: flex; align-items: center; justify-content: center; flex-direction: column;">
+        <p class="fs-4">“Far far away, behind the word mountains, far from the countries Vokalia <br> and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right <br> at the coast of the Semantics, a large language ocean.”</p>
+        <div class="boxii mt-lg-5" style=" width: 150px;  display: flex; align-items: center; justify-content: center;">
+            <img src="./pe3.jpg.webp" alt="Image" class="w-50 img-fluid mt-2 me-4" style="height: 80px; border: 2px solid lightgray; border-radius: 100%;">
+            <p>John smith</p>
+        </div>
+      </div>
+      <div class="swiper-slide" style=" display: flex; align-items: center; justify-content: center; flex-direction: column;">
+        <p class="fs-4"> A small river named Duden flows by their place and <br> supplies it with the necessary regelialia. It is a paradisematic <br> country, in which roasted parts of sentences fly into your mouth.</p>
+        <div class="boxii mt-lg-5" style=" width: 150px;  display: flex; align-items: center; justify-content: center;">
+            <img src="./person_2.jpg" alt="Image" class="w-50 img-fluid mt-2 me-4" style="height: 80px; border: 2px solid lightgray; border-radius: 100%;">
+            <p>John smith</p>
+        </div>
+      </div>
+      <div class="swiper-slide" style=" display: flex; align-items: center; justify-content: center; flex-direction: column;">
+        <p class="fs-4">“Even the all-powerful Pointing has no control about the blind <br> texts it is an almost unorthographic life One day however a small line of blind <br> text by the name of Lorem Ipsum decided to leave for the far World of Grammar.”</p>
+        <div class="boxii mt-lg-5" style=" width: 150px;  display: flex; align-items: center; justify-content: center;">
+            <img src="./person_4.jpg" alt="Image" class="w-50 img-fluid mt-2 me-4" style="height: 80px; border: 2px solid lightgray; border-radius: 100%;">
+            <p>John smith</p>
+        </div>
+      </div>
+      <div class="swiper-slide" style=" display: flex; align-items: center; justify-content: center; flex-direction: column;">
+        <p class="fs-4">“The Big Oxmox advised her not to do so, because there were thousands <br> of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind <br>Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.”</p>
+        <div class="boxii mt-lg-5" style=" width: 150px;  display: flex; align-items: center; justify-content: center;">
+            <img src="./person_4.jpg" alt="Image" class="w-50 img-fluid mt-2 me-4" style="height: 80px; border: 2px solid lightgray; border-radius: 100%;">
+            <p>John smith</p>
+        </div>
+      </div>
+     
+      
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+     <!-- swiper 02 html code end -->
+
+<!-- Pricing page and FAQS  --> 
+
+<div id="price" class="container-fluid " style="background-color: #f8f9fa;">
+    <h1 class="text-center pt-lg-5 fw-bold  pt-sm-5" style="color: #fd7e14;">Pricing</h1>
+
+    <div class="container-fluid mx-auto" style="">
+        <div class="row " style="">
+           <div class="col-lg-3 mx-auto  " style=" background-color: #fff;" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+            <h4 class="text-center pt-lg-3 pb-lg-3">Basic</h4>
+            <h1 class="text-center " style="color: #fd7e14;">$47 <span class="fs-5" style="color: lightgray;">/year</span></h1>
+
+            <div class="d-flex align-center">
+                <i class="ri-check-line text-success fs-4"></i><p >Officia quaerat eaque neque</p>
+            </div>
+            <div class="d-flex align-center">
+                <i class="ri-check-line text-success fs-4"></i><p>Possimus aut consequuntur incidunt</p>
+            </div>
+            <div class="d-flex align-center">
+                <i class="ri-check-line text-success fs-4"></i><p class="text-decoration-line-through" style="color: #dee2e6">Lorem ipsum dolor sit amet</p>
+            </div>
+            <div  class="d-flex align-center">
+                <i class="ri-check-line text-success fs-4"></i><p class="text-decoration-line-through"  style="color: #dee2e6">Consectetur adipisicing elit</p>
+            </div>
+            <div  class="d-flex align-center">
+                <i class="ri-check-line text-success fs-4"></i><p class="text-decoration-line-through"  style="color: #dee2e6">Dolorum esse odio quas architecto sint</p>
+            </div>
+               <div id="diva" class="text-center mb-5 mt-2 ">
+                <a href="#" class="fs-5 px-2 py-1 "  style="color: #fff; background-color:  #6c757d; border: 2px solid #6c757d;  text-decoration: none; border-radius: 50px;;"  >Buy Now</a>
+            </div>
+        </div>
+        <div class="col-lg-3 mx-auto m-lg-0 m-5" style=" box-shadow: 5px 5px 5px 3px lightgrey;background-color: #fff;" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+            <h4  class="text-center pt-lg-3 pb-lg-3">Premium</h4>
+            <h1 class="text-center" style="color: #fd7e14;">$200 <span  class="fs-5" style="color: lightgray;">/year</span></h1>
+               <div class="d-flex align-center">
+                <i class="ri-check-line text-success fs-4"></i><p >Officia quaerat eaque neque</p>
+            </div>
+            <div class="d-flex align-center">
+                <i class="ri-check-line text-success fs-4"></i><p>Possimus aut consequuntur incidunt</p>
+            </div>
+            <div class="d-flex align-center">
+                <i class="ri-check-line text-success fs-4"></i><p>Lorem ipsum dolor sit amet</p>
+            </div>
+            <div  class="d-flex align-center">
+                <i class="ri-check-line text-success fs-4"></i><p>Consectetur adipisicing elit</p>
+            </div>
+            <div  class="d-flex align-center">
+                <i class="ri-check-line text-success fs-4"></i><p class="text-decoration-line-through"  style="color: #dee2e6">Dolorum esse odio quas architecto sint</p>
+            </div>
+               <div id="diva" class="text-center mb-5 mt-2">
+                <a href="#" class="fs-5 px-2 py-1 "  style="color: #fff; background-color:  #fd7e14; border: 2px solid #fd7e14;  text-decoration: none; border-radius: 50px;;"  >Buy Now</a>
+            </div>
+        </div>
+        <div class="col-lg-3 mx-auto  " style="  background-color: #fff;" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+            <h4  class="text-center pt-lg-3 pb-lg-3">Professional</h4>
+            <h1 class="text-center" style="color: #fd7e14;">$750 <span  class="fs-5" style="color: lightgray;">/year</span></h1>
+             <div class="d-flex align-center">
+                <i class="ri-check-line text-success fs-4"></i><p >Officia quaerat eaque neque</p>
+            </div>
+            <div class="d-flex align-center">
+                <i class="ri-check-line text-success fs-4"></i><p>Possimus aut consequuntur incidunt</p>
+            </div>
+            <div class="d-flex align-center">
+                <i class="ri-check-line text-success fs-4"></i><p>Lorem ipsum dolor sit amet</p>
+            </div>
+            <div  class="d-flex align-center">
+                <i class="ri-check-line text-success fs-4"></i><p>Consectetur adipisicing elit</p>
+            </div>
+            <div  class="d-flex align-center">
+                <i class="ri-check-line text-success fs-4"></i><p>Dolorum esse odio quas architecto sint</p>
+            </div>
+            <div id="diva" class="text-center mb-5 mt-2">
+                <a href="#" class="fs-5 px-2 py-1 "  style="color: #fff; background-color:  #6c757d; border: 2px solid #6c757d;  text-decoration: none; border-radius: 50px;;"  >Buy Now</a>
+            </div>
+
+           </div>
+
+        </div>
+    </div>
+<!-- FAQs frequently asked Questions -->
+    <h1 id="FAQ" class="text-center mt-5" style="color: #fd7e14;">Frequently Ask Questions</h1>
+
+    <div  class="container mx-auto text-center">
+        <div class="row" style=>
+            <div class="col-lg-6" style="">
+                <h4 class="text-start" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">Can I accept both Paypal and Stripe?</h4>
+                <p class="text-start mb-lg-5 mb-5" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">Fa r far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                <h4 class="text-start"data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">What available is refund period?</h4>
+                <p class="text-start mb-lg-5 mb-5" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">Fa r far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                <h4 class="text-start" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">Can I accept both Paypal and Stripe?</h4>
+                <p class="text-start mb-lg-5 mb-5" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">Fa r far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                <h4 class="text-start" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">What available is refund period?</h4>
+                <p class="text-start mb-lg-5 mb-5" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">Fa r far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                
+                
+            </div>
+            <div class="col-lg-6"style=>
+                <h4 class="text-start" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">Where are you from?</h4>
+                <p class="text-start mb-lg-5 mb-5" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">Voluptatum nobis obcaecati perferendis dolor totam unde dolores quod maxime corporis officia et. Distinctio assumenda minima maiores.</p>
+                 <h4 class="text-start" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">What is your opening time?</h4>
+                <p class="text-start mb-lg-5 mb-5" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">Fa r far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p> <h4 class="text-start" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">Can I accept both Paypal and Stripe?</h4>
+                <p class="text-start mb-lg-5 mb-5" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">Fa r far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p> <h4 class="text-start" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">What available is refund period?</h4>
+                <p class="text-start mb-lg-5 mb-5" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">Fa r far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- bank loan page  -->
+  <div class="row mt-5  " style="gap: 0%;"> 
+            <div class="col-lg-5 col-sm-12 mx-auto" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+                <img src="./hero_1.jpg" alt="" class="img-fluid">
+            </div>
+            <div class="col-lg-5 mt-lg-0 mt-5" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom" style=" gap: 2%;">
+
+     <div class="01 d-flex mb-lg-5" >
+
+  
+              <div class="img pt-2 me-3">
+                <img src="./head_6128004.png" alt="" class="img-fluid" style="height: 60px;">
+
+              </div>
+              <div class="text">
+                <h3>Bank Loan</h3>
+                  
+                                  <p class=" mt-2">Far far away, behind the word mountains, <br> far from the countries Vokalia and Consonantia,<br> there live the blind texts..</p>
+                                  <a href="#" style=" color: #fd7e14;">learn More</a>
+                                  
+                                </div>
+                                
+                            </div>
+                            <div class="02 d-flex ">
+                                
+                                <div class="img pt-2 me-3" style="color: #fd7e14;">
+                                    <img src="./Screenshot 2025-07-30 004004.png" alt="" style="height: 50px;">
+                                    
+                                    
+                                </div>
+                                <div class="text">
+                                    
+                                    <h3>Banking Consulation</h3>
+                                    <p class=" mt-4">Far far away, behind the word mountains, <br> far from the countries Vokalia and Consonantia,<br> there live the blind texts.\</p>
+                                    <a href="#" style=" color: #fd7e14;">learn More</a>
+                                    
+         </div>
+     </div>
+
+
+
+            </div>
+        </div>
+
+
+
+        <!-- Now our BLog page -->
+         <h1 id="blog" class="text-center mt-5 pt-5 fw-bold" style="color: #fd7e14;">Our Blog</h1>
+
+         <div class="container-fluid mx-auto mt-5" style=>
+        <div class="row " style=>
+           <div class="col-lg-3 mx-auto  " style=" background-color: #fff;" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+            <img src="./img_1.jpg" alt="" class="img-fluid">
+            <p class="fs-5" id="p-hov1">A Basic Guide to Starting a Franchise in the Philippines</p>
+            <h6 style="color: lightgray;">Ham Brook . jan 18,2019 <span style="color: #fd7e14;">News</span></h6>
+            <p  style="color: rgb(146, 144, 144);">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
+              <a href="#" style=" color: #fd7e14;">Continue Reading</a>
+              
+            </div>
+            <div class="col-lg-3 mx-auto m-lg-0 m-5" style=" box-shadow: 5px 5px 5px 3px lightgrey;background-color: #fff;" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+            <img src="./img_3.jpg" alt="" class="img-fluid">
+            
+            <p class="fs-5" id="p-hov2">A Basic Guide to Starting a Franchise in the Philippines</p>
+            <h6 style="color: lightgray;">James Phelps  . jan 18,2019 <span style="color: #fd7e14;">News</span></h6>
+            <p  style="color: rgb(146, 144, 144);">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
+            <a href="#" style=" color: #fd7e14;">Continue Reading</a>
+            
+        </div>
+        <div class="col-lg-3 mx-auto  " style="  background-color: #fff;" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+            <img src="./img_4.jpg" alt="" class="img-fluid">
+            <p class="fs-5" id="p-hov3">A Basic Guide to Starting a Franchise in the Philippines</p>
+            <h6 style="color: lightgray;">James Phelps  . jan 18,2019 <span style="color: #fd7e14;">News</span></h6>
+            <p  style="color: rgb(146, 144, 144);">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
+            <a href="#" style=" color: #fd7e14;">Continue Reading</a>
+            
+           </div>
+
+        </div>
+    </div>
+         
+     <!-- contact US page now -->
+
+     <div id="contact" class="container-fluid mx-auto "style="background-color: #f8f9fa;">
+        <h1 class="text-center mt-5 pt-5" style="color: #fd7e14;">Contact Us</h1>
+        <div class="container mx-auto" style=" display: flex; align-items: center; justify-content: center;" >
+
+            <div class="row text-center">
+                <div class="col-lg-4"  style="">
+            <i class="ri-map-pin-2-fill" style="color:#fd7e14;  "></i> <br>
+             <p style="color: #868686;">
+            
+                203 Fake St. Mountain View, San Francisco, California, USA
+
+            </p>
+
+
+            
+        </div>
+        <div class="col-lg-4"  style="">
+            <i class="ri-phone-fill" style="color: #fd7e14; "></i> <br>
+            <p style="color: #fd7e14;">
+                +1 232 3235 324
+
+            </p>
+
+        </div>
+        <div class="col-lg-4"  style="">
+            <i class="ri-mail-line" style="color: #fd7e14; "></i> <br>
+            <p style="color: #fd7e14;">youremail@domain.com</p>
+
+        </div>
+       </div>
+    </div>
+
+    <!-- THis is the Contact form which we created in the website -->
+     <div class="container text-align-center " style="background-color: #fff; display: flex; align-items: center ;margin-bottom:10px; justify-content: center;">
+
+        <div class="col-md-7 col-lg-8"> <h4 class="mb-3">Contact Form</h4> <form class="needs-validation" novalidate=""> <div class="row g-3"> <div class="col-sm-6"> <label for="firstName" class="form-label">First name</label> <input type="text" class="form-control" id="firstName" placeholder="" value="" required=""> <div class="invalid-feedback">
+Valid first name is required.
+</div> </div> <div class="col-sm-6"> <label for="lastName" class="form-label">Last name</label> <input type="text" class="form-control" id="lastName" placeholder="" value="" required=""> <div class="invalid-feedback">
+Valid last name is required.
+</div> </div> 
+
+
+<div class="col-12"> <label for="email" class="form-label">Email <span class="text-body-secondary">(Optional)</span></label> <input type="email" class="form-control" id="email" placeholder=""> <div class="invalid-feedback">
+Please enter a valid email address for shipping updates.
+</div> </div> <div class="col-12"> <label for="address" class="form-label">Subject</label> <input type="text" class="form-control" id="address" placeholder="" required=""> <div class="invalid-feedback">
+Please enter your shipping address.
+</div> </div>
+
+<div class="col-lg-12" style="display: flex; align-items: start; justify-content: start; flex-direction: column;">
+    <label for="message" class="form-label">Message</label>
+    <textarea style="width: 100%; height: 100px;" name="" id="" placeholder="write your notes and questions here...."></textarea>
+</div>
+
+
+ <hr class="my-4"> <button class="w-50 btn btn-primary " type="submit" style="background-color: #fd7e14; border:2px solid #fd7e14">Send Message</button> </form> </div>
+
+     </div>
+
+    <!-- from end -->
+       
+
+     </div>
+
+
+     <!-- last page div -->
+
+     <div class="container-fluid" style="background-color:#343a40; color: #fff;">
+        <div class="container mt-5 pt-5">
+
+        
+        <div class="row mt-5 pt-2" style="flex-wrap: wrap;">
+            <div class="col-lg-4 col-sm-12" style="">
+
+                <h4 class="mb-4">About Us</h4>
+                <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque facere laudantium magnam voluptatum autem. Amet aliquid nesciunt veritatis aliquam.</p>
+                
+            </div>
+            <div class="col-lg-2 col-sm-12" style="">
+                
+                <h4 class="mb-4">Quick Links</h4>
+                <div class="Allas" style=" display:flex; align-items: start; justify-content: start; flex-direction: column;">
+
+                    <a href="#about" style="color: #fff;" class="mb-3">Terms</a>
+                    <a href="#about" style="color: #fff;" class="mb-3">Policy</a>
+                    <a href="#about" style="color: #fff;" class="mb-3">About Us</a>
+                    <a href="#Service" style="color: #fff;" class="mb-3">Services</a>
+                    <a href="#swiper" style="color: #fff;" class="mb-3">Testimonials</a>
+                    <a href="#contact" style="color: #fff;" class="mb-3">Contact US</a>
+                </div>
+
+
+            </div>
+            <div class="col-lg-3 col-sm-12" style="">
+                <h4 class="mb-4">Follow Us</h4>
+                <a href="#bgpic" style="color: #fff; text-decoration: none;">
+                    <i class="ri-facebook-fill fs-4"></i>
+                </a>
+                 <a href="#bgpic" style="color: #fff; text-decoration: none;"> 
+
+                     <i class="ri-twitter-line fs-4"></i>
+                 </a>
+                 <a href="#bgpic" style="color: #fff; text-decoration: none;">
+                     <i class="ri-instagram-line fs-4"></i>
+
+                 </a>
+
+                    <a href="#bgpic" style="color: #fff; text-decoration: none;">
+
+                        <i class="ri-linkedin-fill fs-4"></i>
+                    </a>
+
+
+                
+
+
+            </div>
+            <div class="col-lg-3 col-sm-12" style="">
+                <h4 class="mb-4">Subscribe Newsletter</h4>
+
+                <div class="input-group mb-3">
+                <input type="text" class="form-control  text-white bg-transparent" style="border: 2px solid white;" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2" style="color: #fff;">
+                <div class="input-group-append">
+                  <button class="btn btn-light text-black " style="border: 2px solid white;" type="button" id="button-addon2">Send</button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        </div>
+
+        <hr>
+        <div class="lastp pb-5 pt-5">
+            <p class="text-center ">Copyright ©2025 All rights reserved | This template is made with💓by Colorlib</p>
+
+        </div>
+
+
+        
+
+     </div>
+
+     <!-- end last page div -->
+
+
+
+
+
+
+
+<!-- ***************************************************************script -->
+
+<!-- swiper Script  code start-->
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js">
+</script>
+
+<!-- swiper 01 -->
+   <script>
+    var swiper = new Swiper(".mySwiper", {
+      speed: 600,
+      parallax: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+
+  <!-- swiper02  -->
+   <script>
+    var swiper = new Swiper(".mySwiper", {
+      spaceBetween: 30,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+  </script>
+    
+
+<!-- swiper script code end  -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const rows = {
+                'all': document.querySelectorAll('#containerall .row'),
+                'events': document.getElementById('row1'),
+                'party': document.getElementById('row2'),
+                'holidays': document.getElementById('row3')
+            };
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // First hide all rows
+                    rows['all'].forEach(row => {
+                        row.classList.add('hidden-row');
+                    });
+                    
+                    // Then show the selected ones
+                    if (filterValue === 'all') {
+                        rows['all'].forEach(row => {
+                            row.classList.remove('hidden-row');
+                        });
+                    } else {
+                        rows[filterValue].classList.remove('hidden-row');
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Scripting beneath -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+             function closeNavbar() {
+            if (window.innerWidth < 992) { // Only for mobile
+                const navbarToggler = document.querySelector('.navbar-toggler');
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                
+                if (navbarCollapse.classList.contains('show')) {
+                    // Manually trigger click on the toggler to close the navbar
+                    navbarToggler.click();
+                }
+                
+                // Close all dropdowns
+                document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                    menu.classList.remove('show');
+                });
+            }
+        }
+
+        // Function to handle dropdown click behavior
+        function handleDropdownClick(event) {
+            if (window.innerWidth < 992) { // Only for mobile
+                event.preventDefault();
+                const dropdown = event.target.closest('.dropdown');
+                const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+                
+                // Close all other dropdowns first
+                document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                    if (menu !== dropdownMenu) {
+                        menu.classList.remove('show');
+                    }
+                });
+                
+                // Toggle the clicked dropdown
+                dropdownMenu.classList.toggle('show');
+                
+                // Prevent default Bootstrap behavior
+                event.stopPropagation();
+            }
+        }
+
+        // Function to handle submenu click behavior
+        function handleSubmenuClick(event) {
+            if (window.innerWidth < 992) { // Only for mobile
+                event.preventDefault();
+                const submenu = event.target.nextElementSibling;
+                submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+                event.stopPropagation();
+            }
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(event) {
+            if (window.innerWidth < 992) { // Only for mobile
+                if (!event.target.closest('.dropdown') && !event.target.closest('.navbar-toggler')) {
+                    document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                        menu.classList.remove('show');
+                    });
+                }
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Filter button functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const rows = {
+                'all': document.querySelectorAll('#containerall .row'),
+                'events': document.getElementById('row1'),
+                'party': document.getElementById('row2'),
+                'holidays': document.getElementById('row3')
+            };
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    rows['all'].forEach(row => {
+                        row.classList.add('hidden-row');
+                    });
+                    
+                    if (filterValue === 'all') {
+                        rows['all'].forEach(row => {
+                            row.classList.remove('hidden-row');
+                        });
+                    } else {
+                        rows[filterValue].classList.remove('hidden-row');
+                    }
+                });
+            });
+
+            // Scroll functionality for navbar color change
+            window.addEventListener('scroll', function() {
+                const navbar = document.getElementById('scrollNav');
+                const navTexts = document.querySelectorAll('.nav-text');
+                const socialIcons = document.querySelectorAll('.social-icon');
+                
+                if (window.scrollY > 10) {
+                    navbar.style.backgroundColor = '#fff';
+                    navbar.style.borderBottom = '#000';
+                    
+                    navTexts.forEach(element => {
+                        element.style.color = '#000';
+                    });
+                    
+                    socialIcons.forEach(icon => {
+                        icon.style.color = '#000';
+                    });
+                    
+                    document.querySelector('.navbar-toggler').style.borderColor = '#000';
+                    document.querySelector('.navbar-toggler-icon').style.backgroundImage = "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e\")";
+                } else {
+                    navbar.style.backgroundColor = 'transparent';
+                    navbar.style.borderBottom = '1px solid rgba(167, 165, 165, 0.3)';
+                    
+                    navTexts.forEach(element => {
+                        element.style.color = '#000';
+                    });
+                    
+                    socialIcons.forEach(icon => {
+                        icon.style.color = '#000';
+                    });
+                    
+                    document.querySelector('.navbar-toggler').style.borderColor = 'rgba(255,255,255,0.5)';
+                    document.querySelector('.navbar-toggler-icon').style.backgroundImage = "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e\")";
+                }
+            });
+            
+            // Initialize Bootstrap dropdowns
+            var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
+            var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+                return new bootstrap.Dropdown(dropdownToggleEl);
+            });
+        });
+
+
+
+        AOS.init();
+    </script>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('scrollNav');
+            const navTexts = document.querySelectorAll('.nav-text');
+            const socialIcons = document.querySelectorAll('.social-icon');
+            
+            if (window.scrollY>10) {
+                navbar.style.backgroundColor = '#fff';
+                navbar.style.borderBottom = '#000';
+                
+                navTexts.forEach(element => {
+                    element.style.color = '#000';
+                });
+                
+                socialIcons.forEach(icon => {
+                    icon.style.color = '#000';
+                });
+                
+                document.querySelector('.navbar-toggler').style.borderColor = '#000';
+                document.querySelector('.navbar-toggler-icon').style.backgroundImage = "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e\")";
+            } else {
+                navbar.style.backgroundColor = 'transparent';
+                navbar.style.borderBottom = '1px solid rgba(167, 165, 165, 0.3)';
+                
+                navTexts.forEach(element => {
+                    element.style.color = '#000';
+                });
+                
+                socialIcons.forEach(icon => {
+                    icon.style.color = '#000';
+                });
+                
+                document.querySelector('.navbar-toggler').style.borderColor = 'rgba(255,255,255,0.5)';
+                document.querySelector('.navbar-toggler-icon').style.backgroundImage = "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e\")";
+            }
+        });
+        
+        // Initialize Bootstrap dropdowns
+        var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
+        var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+            return new bootstrap.Dropdown(dropdownToggleEl)
+        });
+        
+        // Handle submenu dropdowns
+        document.querySelectorAll('.dropdown-submenu a.dropdown-item').forEach(function(element) {
+            element.addEventListener('click', function(e) {
+                e.stopPropagation();
+                var submenu = this.nextElementSibling;
+                submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+    <script src="script.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script> -->
+</body>
+</html>
